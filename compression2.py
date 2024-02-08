@@ -25,7 +25,7 @@ def f(wav_file="source_file.wav", wav_compressed_file="audio_compressed.wav"):
     d = int(fs / f0)  # Затем мы определяем коэффициент понижающей дискретизации
     new_data = data[::d, :]  # получение уменьшенных данных
     # Запись новых данных в wav-файл
-    sf.write(wav_compressed_file, new_data, int(fs / d), 'PCM_16')
+    sf.write(wav_compressed_file, new_data, int(fs / d), 'PCM_U8')
     audio_сompressed = AudioSegment.from_wav(wav_compressed_file)
     audio_сompressed.export(wav_compressed_file, format="wav")
 
